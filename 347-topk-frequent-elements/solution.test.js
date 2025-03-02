@@ -2,7 +2,7 @@ import { test, expect } from '@jest/globals'
 import { expectArr } from '../utilities.js'
 import topKFrequent from './solution.js'
 
-test('topKFrequent handles sane/valid inputs', () => {
+test('topKFrequent should handle sane/valid inputs', () => {
   expect(topKFrequent([1, 1, 1, 2, 2, 3], 2)).toEqual([1, 2])
   expect(topKFrequent([1, 1, 2, 2, 3, 3], 2)).toEqual([1, 2])
   expect(topKFrequent([1, 1, 1, 2, 2, 3], 1)).toEqual([1])
@@ -22,4 +22,25 @@ test('topKFrequent handles sane/valid inputs', () => {
   const large_arr = Array.from({length: 100}, (_, i) => i + 1)
     .flatMap(num => Array(num).fill(num))
   expect(topKFrequent(large_arr, 5)).toEqual([100, 99, 98, 97, 96])
+})
+
+test('topKFrequent should handle edge cases', () => {
+  expect(topKFrequent(null, 1)).toEqual(null)
+  expect(topKFrequent([], 1)).toEqual(null)
+  expect(topKFrequent([], 2)).toEqual(null)
+  expect(topKFrequent([1], 0)).toEqual(null)
+  expect(topKFrequent([1, 2], 0)).toEqual(null)
+  expect(topKFrequent([1], 2)).toEqual(null)
+
+  expect(topKFrequent([1], 1)).toEqual([1])
+  expect(topKFrequent([1, 1], 0)).toEqual(null)
+  expect(topKFrequent([1, 1], 1)).toEqual([1])
+  expect(topKFrequent([1, 1], 2)).toEqual(null)
+
+  expect(topKFrequent([1, 2], 1)).toEqual([1])
+  expect(topKFrequent([1, 2], 2)).toEqual([1, 2])
+
+  expect(topKFrequent([1, 2, 3], 1)).toEqual([1])
+  expect(topKFrequent([1, 2, 3], 2)).toEqual([1, 2])
+  expect(topKFrequent([1, 2, 3], 3)).toEqual([1, 2, 3])
 })

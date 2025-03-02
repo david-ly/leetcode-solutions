@@ -6,6 +6,9 @@ export default topKFrequent
  * @return {number[]}
  */
 function topKFrequent(nums, k) {
+  if (!nums || !nums?.length || k < 0 || !k) return null
+  if (k > new Set(nums).size) return null
+
   /* Count frequencies > sort by frequency > return top K */
   /* Init num:freq map > make arr of [freq, num] tuples > sort arr on each [0]th (freq) elem > return slice of first/top K elems */
   // const freqs = new Map()

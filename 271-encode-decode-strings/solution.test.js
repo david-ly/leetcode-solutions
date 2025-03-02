@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
 import { encode, decode } from './solution.js'
 
-test('encode/decode handles sane/valid inputs', () => {
+test('encode/decode should handle sane/valid inputs', () => {
   const input = ['Hello', 'World']
   const encoded = '5#Hello5#World'
   expect(encode(input)).toBe(encoded)
@@ -50,7 +50,7 @@ test('encode/decode handles sane/valid inputs', () => {
   expect(decode(encode(mult))).toEqual(mult)
 })
 
-test('encode/decode handles various edge cases', () => {
+test('encode/decode should handle various edge cases', () => {
   const input = Array(1000).fill().map((_, i) => `string${i}`)
   const encoded = getLrgEncoded()
   expect(encode(input)).toBe(encoded)
@@ -71,7 +71,7 @@ test('encode/decode handles various edge cases', () => {
   expect(decode(encode(delm))).toEqual(delm)
 })
 
-test('encode/decode handles empty/null(ish) cases', () => {
+test('encode/decode should handle empty/null(ish) cases', () => {
   expect(encode(undefined)).toBe(null)
   expect(encode(null)).toBe(null)
   expect(encode([])).toBe(null)

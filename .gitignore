@@ -105,3 +105,7 @@ dist
 
 # macOS file metadata
 .DS_Store
+
+# Experimental TS LSP/Intellisense config
+jsconfig.json
+

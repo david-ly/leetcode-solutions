@@ -8,16 +8,13 @@ function longestCommonPrefix(strs) {
   if (!strs || !strs.length) return ''
   if (strs.length === 1) return strs[0]
 
-  /* Get first string arbitrarily & compare against rest via horizontal scan */
+  /* Get first string arbitrarily & compare against rest */
   const [pre_cand, ...rest] = strs // prefix candidate
-  let common = ''
-  for (let i = 0; i < pre_cand.length; i++) {
+  let i = 0
+  while (i < pre_cand.length) {
       const char = pre_cand[i]
-      const curr = common + char
-      for (const str of rest) {
-          if (str.substring(0, i + 1) !== curr) return common
-      }
-      common += char
+      if (rest.some(str => i >= str.length || str[i] !== char)) break
+      i++
   }
-  return common
+  return pre_cand.slice(0, i)
 }

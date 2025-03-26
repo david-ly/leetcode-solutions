@@ -1,8 +1,6 @@
 import { test, expect } from '@jest/globals'
+import { MAX, MIN } from '../utilities.js'
 import MinStack from './solution.js'
-
-const MAX = Number.MAX_SAFE_INTEGER
-const MIN = Number.MIN_SAFE_INTEGER
 
 test('MinStack should handle basic operations', () => {
   const min_stack = new MinStack()

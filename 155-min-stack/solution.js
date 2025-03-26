@@ -1,4 +1,4 @@
-const MAX = Number.MAX_SAFE_INTEGER
+import { MAX } from '../utilities.js'
 
 export default class MinStack {
     constructor() {

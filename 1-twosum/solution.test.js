@@ -1,7 +1,8 @@
 import { test, expect } from '@jest/globals'
 import twoSum from './solution.js'
 
-test('twoSum should work with positive numbers (& edge cases)', () => {
+test('twoSum should handle positive/negative numbers', () => {
+	/* Positive Numbers */
   expect(twoSum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 19)).toEqual([8, 9])
   expect(twoSum([2, 7, 11, 15], 9)).toEqual([0, 1])
   expect(twoSum([3, 2, 4], 6)).toEqual([1, 2])
@@ -17,10 +18,9 @@ test('twoSum should work with positive numbers (& edge cases)', () => {
 	expect(twoSum([0, 4, 7, 11], 18)).toEqual([2, 3])
 
   expect(twoSum([5, 5, 5, 5], 10)).toEqual([0, 1]) // first pair (L2R)
-})
 
-test('twoSum should work with negative numbers', () => {
-  expect(twoSum([-1, -2, -3, -4, -5], -8)).toEqual([2, 4])
+	/* Negative Numbers */
+	expect(twoSum([-1, -2, -3, -4, -5], -8)).toEqual([2, 4])
 	expect(twoSum([-1, -2, -3, -4, -5], -3)).toEqual([0, 1])
 	expect(twoSum([-1, -2, -3, -4, -5], -9)).toEqual([3, 4])
 	expect(twoSum([0, -2, -3, -4, -5], -5)).toEqual([1, 2])
@@ -33,19 +33,18 @@ test('twoSum should work with negative numbers', () => {
 	expect(twoSum([-5, -5, -5, -5], -10)).toEqual([0, 1])
 })
 
-test('twoSum should return `undefined` when no solution exists', () => {
+test('twoSum should handle "edge" cases', () => {
+	/* No Solution */
   expect(twoSum([1, 2, 3], 7)).toEqual(undefined)
 	expect(twoSum([-1, -2, -3], 0)).toEqual(undefined)
   expect(twoSum([1, 3, 5, 7], 2)).toEqual(undefined)
 	expect(twoSum([-1, -3, -5, -7], 10)).toEqual(undefined)
-})
 
-test('twoSum should handle edge case of [{arr}.length = 1]', () => {
-  expect(twoSum([1], 1)).toEqual(undefined)
+	/* Single Element */
+	expect(twoSum([1], 1)).toEqual(undefined)
 	expect(twoSum([-1], -1)).toEqual(undefined)
-})
 
-test('twoSum should handle edge case of null(ish) input', () => {
+	/* Null(ish) Input */
 	expect(twoSum(undefined, 1)).toEqual(undefined)
 	expect(twoSum(null, 1)).toEqual(undefined)
 	expect(twoSum([], 1)).toEqual(undefined)

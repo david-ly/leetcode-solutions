@@ -28,6 +28,7 @@ test('isPalindrome should handle sane/valid inputs', () => {
   expect(isPalindrome('a1b2a')).toBe(false)
   expect(isPalindrome('12345')).toBe(false)
 })
+
 test('isPalindrome should handle edge/special cases', () => {
   expect(isPalindrome('')).toBe(true)
   expect(isPalindrome(' ')).toBe(true)

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/david-ly/leetcode-solutions#readme",
   "devDependencies": {
+    "@datastructures-js/priority-queue": "^6.3.3",
     "eslint": "^9.21.0",
     "jest": "^29.7.0",
     "typescript-eslint": "^8.18.1"

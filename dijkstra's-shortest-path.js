@@ -1,5 +1,7 @@
 // #ref: https://neetcode.io/problems/dijkstra
 
+import { PriorityQueue } from '@datastructures-js/priority-queue'
+
 class Solution {
     /**
      * @param {number} n
